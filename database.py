@@ -1,9 +1,9 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host="host",
-    user="user",
-    passwd="password",
+    host="localhost",
+    user="PyCharm",
+    passwd="",
     database="test"
 )
 
@@ -26,3 +26,20 @@ def updateInfo(wierszZ_name,wartoscZ_value,wierszG_name,wartoscG_value):
     mydb.commit()
 
 updateInfo("text2","192.168.1.23","id","4")
+
+"""PROBLEM"""
+
+Traceback (most recent call last):
+  File "D:/Pulpit/PyCharm/Project1/###Pliki/Aplikacja/database.py", line 28, in <module>
+    updateInfo("text2","192.168.1.23","id","4")
+  File "D:/Pulpit/PyCharm/Project1/###Pliki/Aplikacja/database.py", line 25, in updateInfo
+    mycursor.execute(default)
+  File "D:\Pulpit\PyCharm\Project1\venv\lib\site-packages\mysql\connector\cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "D:\Pulpit\PyCharm\Project1\venv\lib\site-packages\mysql\connector\connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "D:\Pulpit\PyCharm\Project1\venv\lib\site-packages\mysql\connector\connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'python.wierszGdzie_nazwa' in 'where clause'
+
+Process finished with exit code 1
